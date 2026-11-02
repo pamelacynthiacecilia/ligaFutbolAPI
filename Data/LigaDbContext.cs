@@ -171,72 +171,40 @@ public partial class LigaDbContext : DbContext
                 .HasConstraintName("jugador_ibfk_1");
         });
 
-      /*  modelBuilder.Entity<Pasejugador>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
-
-            entity.ToTable("pasejugador");
-
-            entity.HasIndex(e => e.IdClubDestino, "idClubDestino");
-
-            entity.HasIndex(e => e.IdClubOrigen, "idClubOrigen");
-
-            entity.HasIndex(e => e.IdJugador, "idJugador");
-
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("id");
-            entity.Property(e => e.Estado)
-                .HasMaxLength(20)
-                .HasColumnName("estado");
-            entity.Property(e => e.FechaFinPase).HasColumnName("fechaFinPase");
-            entity.Property(e => e.FechaPase).HasColumnName("fechaPase");
-            entity.Property(e => e.IdClubDestino)
-                .HasColumnType("int(11)")
-                .HasColumnName("idClubDestino");
-            entity.Property(e => e.IdClubOrigen)
-                .HasColumnType("int(11)")
-                .HasColumnName("idClubOrigen");
-            entity.Property(e => e.IdJugador)
-                .HasColumnType("int(11)")
-                .HasColumnName("idJugador");
-
-            entity.HasOne(d => d.IdClubDestinoNavigation).WithMany(p => p.PasejugadorIdClubDestinoNavigations)
-                .HasForeignKey(d => d.IdClubDestino)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("pasejugador_ibfk_3");
-
-            entity.HasOne(d => d.IdClubOrigenNavigation).WithMany(p => p.PasejugadorIdClubOrigenNavigations)
-                .HasForeignKey(d => d.IdClubOrigen)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("pasejugador_ibfk_2");
-
-            entity.HasOne(d => d.IdJugadorNavigation).WithMany(p => p.Pasejugadors)
-                .HasForeignKey(d => d.IdJugador)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("pasejugador_ibfk_1");
-        });*/
-
         modelBuilder.Entity<Usuario>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PRIMARY");
+{
+    entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("usuario");
+    entity.ToTable("usuario");
 
-            entity.HasIndex(e => e.Email, "email").IsUnique();
+    entity.HasIndex(e => e.Email, "email").IsUnique();
 
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("id");
-            entity.Property(e => e.Activo).HasColumnName("activo");
-            entity.Property(e => e.Email).HasColumnName("email");
-            entity.Property(e => e.Password)
-                .HasMaxLength(255)
-                .HasColumnName("password");
-            entity.Property(e => e.Rol)
-                .HasMaxLength(50)
-                .HasColumnName("rol");
-        });
+    entity.Property(e => e.Id)
+        .HasColumnType("int(11)")
+        .HasColumnName("id");
+
+    entity.Property(e => e.Nombre)
+      .HasMaxLength(30)
+        .HasColumnName("nombre");
+
+    entity.Property(e => e.Apellido)
+      .HasMaxLength(50)
+        .HasColumnName("apellido");
+
+    entity.Property(e => e.Activo)
+        .HasColumnName("activo");
+
+    entity.Property(e => e.Email)
+        .HasColumnName("email");
+
+    entity.Property(e => e.Password)
+        .HasMaxLength(255)
+        .HasColumnName("password");
+
+    entity.Property(e => e.Rol)
+        .HasMaxLength(50)
+        .HasColumnName("rol");
+});
 
         OnModelCreatingPartial(modelBuilder);
     }

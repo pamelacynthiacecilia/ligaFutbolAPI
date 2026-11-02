@@ -2,6 +2,9 @@ using LigaDeJugadoresAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using LigaDeJugadoresAPI.Interfaces;
 using LigaDeJugadoresAPI.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +34,32 @@ builder.Services.AddDbContext<LigaDbContext>(options =>
 // Registrar los servicios de la API
 builder.Services.AddScoped<ICategoriaService, CategoriaService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddAuthentication(
+    JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(
+                    builder.Configuration["Jwt:Key"]
+                    ?? throw new InvalidOperationException(
+                        "No se configuró Jwt:Key.")))
+        };
+    });
+
+// Registrar los servicios de autorización
+builder.Services.AddAuthorization();
+
 
 var app = builder.Build();
 
@@ -56,6 +85,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Validar la identidad del usuario mediante JWT, Comprueba la firma, vigencia, emisor y audiencia del token
+app.UseAuthentication();
+
+// Verificar si el usuario tiene permisos exigidos por el endpoint 
+app.UseAuthorization();
 
 // Habilitar las rutas de los controladores
 app.MapControllers();
