@@ -17,7 +17,7 @@ public partial class Clubfutbol
 
     public DateOnly? FechaFundacion { get; set; }
 
-    public string Estado { get; set; } = null!;
+    public bool Estado { get; set; } = true;
 
     public virtual ICollection<Comisiondirectiva> Comisiondirectivas { get; set; } = new List<Comisiondirectiva>();
 

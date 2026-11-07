@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Pamela\\Proyectos\\LigaDeJugadoresAPI\\wwwroot\\Uploads\\ClubesEscudos\\cf9da858473d4fe5a025b1733309bca1.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\ClubesEscudos\\cf9da858473d4fe5a025b1733309bca1.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.LigaDeJugadoresAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.LigaDeJugadoresAPI.props",
+      "PackagePath": "build\\LigaDeJugadoresAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.LigaDeJugadoresAPI.props",
+      "PackagePath": "buildMultiTargeting\\LigaDeJugadoresAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.LigaDeJugadoresAPI.props",
+      "PackagePath": "buildTransitive\\LigaDeJugadoresAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

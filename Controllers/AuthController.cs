@@ -16,7 +16,7 @@ public class AuthController : ControllerBase
         _authService = authService;
     }
 
-    [AllowAnonymous]
+    [AllowAnonymous] //permite iniciar sesión sin tener previamente un token
     [HttpPost("login")]
     public async Task<ActionResult<LoginResponse>> Login(
         [FromBody] LoginDto loginDto)

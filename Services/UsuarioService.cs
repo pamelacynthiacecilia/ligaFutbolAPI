@@ -75,4 +75,82 @@ public class UsuarioService : IUsuarioService
             Activo = usuario.Activo
         };
     }
+
+    public async Task<bool> CambiarPasswordAsync(
+    int idUsuario,
+    CambiarPasswordDto dto)
+{
+    // 1. Buscar el usuario
+    var usuario = await _context.Usuarios
+        .FirstOrDefaultAsync(u => u.Id == idUsuario && u.Activo);
+
+    if (usuario == null)
+    {
+        throw new KeyNotFoundException(
+            "El usuario no existe o está inactivo.");
+    }
+
+    // 2. Verificar la contraseña actual
+    var resultado = _passwordHasher.VerifyHashedPassword(
+        usuario,
+        usuario.Password,
+        dto.PasswordActual
+    );
+
+    if (resultado == PasswordVerificationResult.Failed)
+    {
+        throw new ArgumentException(
+            "La contraseña actual es incorrecta.");
+    }
+
+    // 3. Verificar que la nueva contraseña sea diferente
+    var resultadoNueva = _passwordHasher.VerifyHashedPassword(
+        usuario,
+        usuario.Password,
+        dto.PasswordNueva
+    );
+
+    if (resultadoNueva != PasswordVerificationResult.Failed)
+    {
+        throw new ArgumentException(
+            "La nueva contraseña debe ser diferente de la actual.");
+    }
+
+    // 4. Generar el hash de la nueva contraseña
+    usuario.Password = _passwordHasher.HashPassword(
+        usuario,
+        dto.PasswordNueva
+    );
+
+    // 5. Guardar los cambios
+    await _context.SaveChangesAsync();
+
+    return true;
+}
+
+public async Task<bool> RestablecerPasswordAsync(
+    int idUsuario,
+    RestablecerPasswordDto dto)
+{
+    // 1. Buscar el usuario
+    var usuario = await _context.Usuarios
+        .FirstOrDefaultAsync(u => u.Id == idUsuario && u.Activo);
+
+    if (usuario == null)
+    {
+        throw new KeyNotFoundException(
+            "El usuario no existe o está inactivo.");
+    }
+
+    // 2. Generar el hash de la nueva contraseña
+    usuario.Password = _passwordHasher.HashPassword(
+        usuario,
+        dto.PasswordNueva
+    );
+
+    // 3. Guardar los cambios
+    await _context.SaveChangesAsync();
+
+    return true;
+}
 }

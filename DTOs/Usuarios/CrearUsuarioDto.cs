@@ -12,7 +12,6 @@ public class CrearUsuarioDto
     [MinLength(8)]
     public string Password { get; set; } = string.Empty;
 
-
     [Required]
     public string Nombre { get; set; } = string.Empty;
 

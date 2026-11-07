@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "R4s33RDfLYQJE3Ry3+aeXJLiMiW/QHMyck0VaU2SVTk=",
+  "Hash": "jtsl1T3fvNAgTz28tndo4DcVicEilXEY0xD0A545Q1w=",
   "Source": "LigaDeJugadoresAPI",
   "BasePath": "_content/LigaDeJugadoresAPI",
   "Mode": "Default",
@@ -15,5 +15,25 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Pamela\\Proyectos\\LigaDeJugadoresAPI\\wwwroot\\Uploads\\ClubesEscudos\\cf9da858473d4fe5a025b1733309bca1.jpg",
+      "SourceId": "LigaDeJugadoresAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Pamela\\Proyectos\\LigaDeJugadoresAPI\\wwwroot\\",
+      "BasePath": "_content/LigaDeJugadoresAPI",
+      "RelativePath": "Uploads/ClubesEscudos/cf9da858473d4fe5a025b1733309bca1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\ClubesEscudos\\cf9da858473d4fe5a025b1733309bca1.jpg"
+    }
+  ]
 }

@@ -66,8 +66,9 @@ public partial class LigaDbContext : DbContext
                 .HasMaxLength(255)
                 .HasColumnName("escudo");
             entity.Property(e => e.Estado)
-                .HasMaxLength(20)
+                .HasColumnType("tinyint(1)")
                 .HasColumnName("estado");
+                //.HasDefaultValue(true);
             entity.Property(e => e.FechaFundacion).HasColumnName("fechaFundacion");
             entity.Property(e => e.Localidad)
                 .HasMaxLength(100)
