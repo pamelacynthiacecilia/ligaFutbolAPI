@@ -13,6 +13,10 @@ public partial class Usuario
 
     public string Rol { get; set; } = null!;
 
+    public string Nombre { get; set; } = null!;
+
+    public string Apellido { get; set; } = null!;
+
     public bool Activo { get; set; }
 
     public virtual Comisiondirectiva? Comisiondirectiva { get; set; }
