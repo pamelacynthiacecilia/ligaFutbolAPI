@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "R4s33RDfLYQJE3Ry3+aeXJLiMiW/QHMyck0VaU2SVTk=",
+  "Source": "LigaDeJugadoresAPI",
+  "BasePath": "_content/LigaDeJugadoresAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "LigaDeJugadoresAPI\\wwwroot",
+      "Source": "LigaDeJugadoresAPI",
+      "ContentRoot": "C:\\Users\\Pamela\\Proyectos\\LigaDeJugadoresAPI\\wwwroot\\",
+      "BasePath": "_content/LigaDeJugadoresAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
