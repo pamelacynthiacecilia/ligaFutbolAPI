@@ -1,0 +1,21 @@
+# Archivos generados por .NET
+bin/
+obj/
+
+# Configuraciones locales del editor
+.vs/
+.vscode/
+.idea/
+
+# Archivos temporales
+*.user
+*.suo
+*.tmp
+*.log
+
+# Configuraciones locales y secretos
+appsettings.Development.json
+appsettings.Local.json
+
+# Imagenes subidas mediante la API
+wwwroot/Uploads/
